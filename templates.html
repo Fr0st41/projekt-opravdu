@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Nástěnka</title>
+    <style>
+        body { font-family: sans-serif; background: #f0f2f5; padding: 20px; }
+        .board { display: flex; flex-wrap: wrap; gap: 15px; }
+        .note { background: #fff176; padding: 15px; width: 200px; box-shadow: 2px 2px 5px rgba(0,0,0,0.1); }
+        form { margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Digitální nástěnka s AI</h1>
+    <form method="POST">
+        <input type="text" name="content" placeholder="Napiš vzkaz..." required>
+        <button type="submit">Přidat na nástěnku</button>
+    </form>
+
+    <div class="board">
+        {% for m in messages %}
+            <div class="note">
+                <small>Původní: {{ m.original }}</small>
+                <p><strong>AI: {{ m.ai }}</strong></p>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
